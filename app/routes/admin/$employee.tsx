@@ -23,6 +23,7 @@ export function hour(date: Date): string {
     minute: "numeric",
     // second: "numeric",
     hour12: false,
+    timeZone: "America/Sao_Paulo",
   };
   return new Intl.DateTimeFormat("pt-br", config).format(new Date(date));
 }
