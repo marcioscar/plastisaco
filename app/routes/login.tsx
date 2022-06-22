@@ -54,29 +54,12 @@ export const action: ActionFunction = async ({ request }) => {
       lastName = lastName as string;
       return await register({ email, password, firstName, lastName });
     }
-    // default:
-    //   return json({ error: `Dados Inválidos` }, { status: 401 });
   }
 };
 
 export default function Login() {
   const [action, setAction] = useState("login");
   const actionData = useActionData<ActionData>();
-
-  // const [formData, setFormData] = useState({
-  //   email: "",
-  //   password: "",
-  //   firstName: "",
-  //   lastName: "",
-  // });
-
-  // // Updates the form data when an input changes
-  // const handleInputChange = (
-  //   event: React.ChangeEvent<HTMLInputElement>,
-  //   field: string
-  // ) => {
-  //   setFormData((form) => ({ ...form, [field]: event.target.value }));
-  // };
 
   return (
     <Layout>
