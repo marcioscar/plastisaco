@@ -100,8 +100,8 @@ export default function Home() {
   const [mes, SetMes] = useState(
     String(new Date().getMonth() + 1).padStart(2, "0")
   );
+  const [dia, SetDia] = useState(String(new Date().getDate()).padStart(2, "0"));
   const [ano, SetAno] = useState(String(new Date().getFullYear()));
-
   const { user, users } = useLoaderData();
 
   let daysMesAno = user?.timeSheet.filter((t) =>
@@ -116,16 +116,7 @@ export default function Home() {
     (t.h = diffData(t.in, t.outLunch, t.inLunch, t.out)),
   ]);
 
-  const dayFilter = user?.timeSheet.filter(
-    (d) => d.day == new Date(now).getDate()
-  );
-  //filtro por semana nao apagar
-  // var currentDate = moment();
-  // const filtered = daysMesAno.filter((date) =>
-  //   moment(date.in).isSame(currentDate, "week")
-  // );
-
-  // console.log(filtered);
+  const dayFilter = user?.timeSheet.filter((d) => d.day == dia + "-" + mes);
 
   const sum = daysMesAno.reduce(
     (acc, time) => acc.add(moment.duration(time.h)),

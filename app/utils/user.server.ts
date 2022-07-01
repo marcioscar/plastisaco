@@ -98,7 +98,10 @@ export const hitTimesheet = async (userId, action) => {
         data: {
           timeSheet: {
             push: {
-              day: new Date().getDate().toString(),
+              day:
+                new Date().getDate().toString().padStart(2, "0") +
+                "-" +
+                (new Date().getMonth() + 1).toString().padStart(2, "0"),
               in: new Date(),
               outLunch: null,
               inLunch: null,
@@ -118,7 +121,10 @@ export const hitTimesheet = async (userId, action) => {
           timeSheet: {
             updateMany: {
               where: {
-                day: new Date().getDate().toString(),
+                day:
+                  new Date().getDate().toString().padStart(2, "0") +
+                  "-" +
+                  (new Date().getMonth() + 1).toString().padStart(2, "0"),
               },
               data: {
                 outLunch: new Date(),
@@ -137,7 +143,10 @@ export const hitTimesheet = async (userId, action) => {
           timeSheet: {
             updateMany: {
               where: {
-                day: new Date().getDate().toString(),
+                day:
+                  new Date().getDate().toString().padStart(2, "0") +
+                  "-" +
+                  (new Date().getMonth() + 1).toString().padStart(2, "0"),
               },
               data: {
                 inLunch: new Date(),
@@ -156,7 +165,10 @@ export const hitTimesheet = async (userId, action) => {
           timeSheet: {
             updateMany: {
               where: {
-                day: new Date().getDate().toString(),
+                day:
+                  new Date().getDate().toString().padStart(2, "0") +
+                  "-" +
+                  (new Date().getMonth() + 1).toString().padStart(2, "0"),
               },
               data: {
                 out: new Date(),
